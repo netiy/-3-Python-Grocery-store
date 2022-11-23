@@ -1,0 +1,28 @@
+ten = float()
+hun = float()
+ans = float()
+total = float(391)
+print("Pay in $10 bills or $100 bills?")
+
+number = (input())
+while number != "10":
+    print("Sorry that's not a valid number")
+    print("Pay in $10 bills or $100 bills?")
+
+    number = input()
+
+
+print("g10")
+while number == "10" or number == "100":
+
+    if number == "10":
+        while ten < total:
+                ten += 10
+                ans = ten - total
+
+    elif number == "100":
+        while hun < total:
+            hun += 100
+            ans = hun - total
+    print("Your change is $" + str(ans) + "0. Thank you for your patronage")
+    break
