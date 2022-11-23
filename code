@@ -1,0 +1,96 @@
+class items:
+    def __init__(self, name, price, instock, altname):
+        self.name = name
+        self.altname = altname
+        self.price = price
+        self.instock = instock
+
+
+listt = ["apple", "apples", "orange", "oranges", "peanut butter", "peanut butters", "bread", "breads"]
+list_of_products = [
+    "[$3.00] Apples ",
+    "[$3.50] Oranges ",
+    "[$4.50] Peanut butter ",
+    "[$2.00] Bread",
+]
+apple = items("apple", 3.00, 71, "apples")
+orange = items("orange", 3.50, 93, "oranges")
+peanutbutter = items("peanut butter", 4.50, 41, "peanut butters")
+bread = items("bread", 2.00, 57, "breads")
+# start
+for product in list_of_products:
+    print(product)
+print("What do you want?")
+answer = input()
+b = float()
+try:
+
+    while answer != listt:
+        if answer == "apple" or answer == "apples":
+            print("How much do you want? There are " + str(apple.instock) + " apples in stock.")
+            total = float(input())
+            if total > apple.instock:
+                print("Sorry, we don't have enough apples.")
+            else:
+                total = total * apple.price
+                print("your total comes out to $" + str(total) + "0")
+                b += 1
+                break
+        elif answer == "orange" or answer == "oranges":
+            print("How much do you want? There are " + str(orange.instock) + " oranges in stock.")
+            total = float(input())
+            if total > orange.instock:
+                print("Sorry, we don't have enough oranges.")
+            else:
+                total = total * orange.price
+                print("your total comes out to $" + str(total) + "0")
+                b += 1
+                break
+        elif answer == "peanut butter" or answer == "peanut butters":
+            print("How much do you want? There are " + str(peanutbutter.instock) + " peanut butters in stock.")
+            total = float(input())
+            if total > peanutbutter.instock:
+                print("Sorry, we don't have enough peanut butters.")
+            else:
+                total = total * peanutbutter.price
+                print("your total comes out to $" + str(total) + "0")
+                b += 1
+                break
+        elif answer == "bread" or answer == "breads":
+            print("How much do you want? There are " + str(bread.instock) + " bread in stock.")
+            total = float(input())
+            if total > bread.instock:
+                print("Sorry, we don't have enough bread.")
+            else:
+                total = total * bread.price
+                print("your total comes out to $" + str(total) + "0")
+                b += 1
+                break
+
+        else:
+            print("Sorry we don't have that here.")
+            print("What do you want?")
+            answer = input()
+
+    if b == 1:
+        print("Pay in $10 bills or $100 bills?")
+        ten = float()
+        hun = float()
+        ans = float()
+
+        number = input()
+        while number == "10" or number == "100":
+            if number == "10":
+                while ten < total:
+                    ten += 10
+                    ans = ten - total
+
+            elif number == "100":
+                while hun < total:
+                    hun += 100
+                    ans = hun - total
+            print("Your change is $" + str(ans) + "0. Thank you for your patronage")
+            break
+
+except ValueError:
+    print("[ERROR] Value is invalid, try again.")
